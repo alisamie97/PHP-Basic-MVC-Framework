@@ -10,7 +10,15 @@
 		public function __construct(){
 			$parts = explode('/',$_SERVER['REQUEST_URI']);
 			$parts = array_filter($parts);
-			
+
+			//-----------------------------
+			/**
+             * edit by alisamie97 @ github
+             * to run on localhost
+			 */
+			array_shift($parts);
+			//-----------------------------
+
 			$this->_controller = ($c = array_shift($parts))? $c: 'index';
 			$this->_method = ($c = array_shift($parts))? $c: 'index';
 			$this->_args = (isset($parts[0])) ? $parts : array();
